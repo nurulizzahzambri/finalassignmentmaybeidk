@@ -97,48 +97,8 @@ st.write("""
          ## The correlation heatmap for the dataset
          """)
 
-sns.set(rc = {'figure.figsize': (22, 20)})
-ax = sns.heatmap(phone_data.corr(), cmap = "PuOr", annot = True, vmin = -1, vmax = 1, center = 0)
+fig = plt.figure(figsize=(10, 4))
+sns.heatmap(phone_data.corr(), cmap = "PuOr", annot = True, vmin = -1, vmax = 1, center = 0)
+st.pyplot(fig)
 
-# Choose plot and data
-plotoption = st.sidebar.selectbox(
-     'Select a plot type',
-      ['Histogram','Scatter Plot','Box Plot'])
-
-if plotoption == 'Histogram':
-  optionx = st.sidebar.selectbox(
-     'Select an X',
-      ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
-       'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
-       'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
-       'touch_screen', 'wifi', 'price_range'])
-         
-  sns.histplot(x = phone_data[optionx]);
-         
-elif plotoption == 'Bar Chart':
-  optionx = st.sidebar.selectbox(
-     'Select an X',
-      ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
-       'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
-       'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
-       'touch_screen', 'wifi', 'price_range'])
-
-  optiony = st.sidebar.selectbox(
-     'Select an X',
-      ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
-       'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
-       'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
-       'touch_screen', 'wifi', 'price_range'])
-         
-  st.bar_chart(x = optionx, y = optiony)
-         
-elif plotoption == 'Box Plot':
-  optionx = st.sidebar.selectbox(
-     'Select an X',
-      ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
-       'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
-       'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
-       'touch_screen', 'wifi', 'price_range'])
-
-  sns.boxplot(data = phone_data, x = price_range, y = optionx);
-      
+st.bar_chart(phone_data['ram'])
