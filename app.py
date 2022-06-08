@@ -19,8 +19,6 @@ This app predicts the **Mobile Price Range** using multiple methods.
 url = "https://raw.githubusercontent.com/nurulizzahzambri/finalassignmentmaybeidk/main/train.csv"
 phone_data = pd.read_csv(url)
 
-st.write(phone_data.head(5))
-
 st.write("""
          ## The summary of numeric X variables
          """)
@@ -61,6 +59,7 @@ intmem_choice = st.sidebar.slider(
 df = phone_data[phone_data['n_cores'].isin(ncore_choice)]
 df = phone_data[phone_data['int_memory'].isin(ncore_choice)]
 
+st.write(df)
 
 X = phone_data.drop(['price_range'], axis = 1)
 y = phone_data['price_range']
