@@ -49,7 +49,7 @@ elif option == 'SVM':
   svc.fit(Xtrain, ytrain)
   ypred = svc.predict(Xtest)
   
-  cf = classification_report(ytest, ypred)
+  cf = pd.DataFrame(classification_report(ytest, ypred))
   
 
 elif option == 'Logistic Regression':
@@ -59,7 +59,7 @@ elif option == 'Logistic Regression':
   logreg.fit(Xtrain, ytrain)
   ypred = logreg.predict(Xtest)
   
-  cf = classification_report(ytest, ypred)
+  cf = pd.DataFrame(classification_report(ytest, ypred))
     
 
 elif option == 'Gaussian Naive Bayes':
@@ -69,7 +69,7 @@ elif option == 'Gaussian Naive Bayes':
   nb.fit(Xtrain, ytrain)
   ypred = nb.predict(Xtest)
   
-  cf = classification_report(ytest, ypred)
+  cf = pd.DataFrame(classification_report(ytest, ypred))
   
   
 elif option == 'Random Forest':
@@ -79,7 +79,7 @@ elif option == 'Random Forest':
   rf.fit(Xtrain, ytrain)
   ypred = rf.predict(Xtest)
   
-  cf = classification_report(ytest, ypred)
+  cf = pd.DataFrame(classification_report(ytest, ypred))
   
 st.write(cf)
 
