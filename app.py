@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import seaborn as sns
 
 # import matplotlib.pyplot as plt
 
@@ -32,30 +33,6 @@ st.write("""
          """)
          
 st.write(phone_data[['battery_power','clock_speed','fc','int_memory','m_dep','mobile_wt','pc','px_height','px_width','ram','sc_h','sc_w','talk_time']].describe())
-
-
-# select type of chart: scatter, histogram, pie
-#if scatter: select x,y
-#if histogram: select x
-#if pie: select x
-
-#optionx = st.sidebar.selectbox(
- #    'Select an X',
-  #    ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
-   #    'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
-    #   'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
-     #  'touch_screen', 'wifi', 'price_range'])
-
-#optiony = st.sidebar.selectbox(
- #    'Select a y',
-  #    ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
-   #    'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
-    #   'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
-     #  'touch_screen', 'wifi', 'price_range'])
-
-#phone_data.plot.scatter(x = 'optionx', y = 'optiony')
-#phone_data.plt.hist(x = phone_data['optionx'])
-#phone_data.plt.pie(x = phone_data['optionx'])
 
 X = phone_data.drop(['price_range'], axis = 1)
 y = phone_data['price_range']
@@ -115,3 +92,53 @@ report = classification_report(ytest, ypred, output_dict=True)
 cf = pd.DataFrame(report).transpose() 
 st.write(cf)
 
+
+st.write("""
+         ## The correlation heatmap for the dataset
+         """)
+
+sns.set(rc = {'figure.figsize': (22, 20)})
+ax = sns.heatmap(phone_data.corr(), cmap = "PuOr", annot = True, vmin = -1, vmax = 1, center = 0)
+
+# Choose plot and data
+plotoption = st.sidebar.selectbox(
+     'Select a plot type',
+      ['Histogram','Scatter Plot','Box Plot'])
+
+if plotoption == 'Histogram':
+  optionx = st.sidebar.selectbox(
+     'Select an X',
+      ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
+       'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
+       'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
+       'touch_screen', 'wifi', 'price_range'])
+         
+  sns.histplot(x = phone_data['optionx']);
+         
+elif plotoption == 'Scatter Plot':
+  optionx = st.sidebar.selectbox(
+     'Select an X',
+      ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
+       'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
+       'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
+       'touch_screen', 'wifi', 'price_range'])
+
+  optiony = st.sidebar.selectbox(
+     'Select an X',
+      ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
+       'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
+       'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
+       'touch_screen', 'wifi', 'price_range'])
+         
+  phone_data.plot.scatter(x = 'optionx', y = 'optiony')
+         
+elif plotoption == 'Box Plot':
+  optionx = st.sidebar.selectbox(
+     'Select an X',
+      ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
+       'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
+       'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
+       'touch_screen', 'wifi', 'price_range'])
+
+  sns.boxplot(data = phone_data, x = 'price_range', y = 'optionx');
+      
