@@ -19,8 +19,6 @@ phone_data = pd.read_csv(url)
 
 st.write(phone_data.head(5))
 
-st.write(phone_data.columns)
-
 X = phone_data.drop(['price_range'], axis = 1)
 y = phone_data['price_range']
 
@@ -42,7 +40,7 @@ if option == 'K-NN':
   knn.fit(Xtrain, ytrain)
   ypred = knn.predict(Xtest)
   
-  print(classification_report(ytest, ypred))
+  cf = classification_report(ytest, ypred)
 
 elif option == 'SVM':
   st.write('This is the SVM method')
@@ -51,7 +49,7 @@ elif option == 'SVM':
   svc.fit(Xtrain, ytrain)
   ypred = svc.predict(Xtest)
   
-  print(classification_report(ytest, ypred))
+  cf = classification_report(ytest, ypred)
   
 
 elif option == 'Logistic Regression':
@@ -61,7 +59,7 @@ elif option == 'Logistic Regression':
   logreg.fit(Xtrain, ytrain)
   ypred = logreg.predict(Xtest)
   
-  print(classification_report(ytest, ypred))
+  cf = classification_report(ytest, ypred)
     
 
 elif option == 'Gaussian Naive Bayes':
@@ -71,7 +69,7 @@ elif option == 'Gaussian Naive Bayes':
   nb.fit(Xtrain, ytrain)
   ypred = nb.predict(Xtest)
   
-  print(classification_report(ytest, ypred))
+  cf = classification_report(ytest, ypred)
   
   
 elif option == 'Random Forest':
@@ -81,5 +79,7 @@ elif option == 'Random Forest':
   rf.fit(Xtrain, ytrain)
   ypred = rf.predict(Xtest)
   
-  print(classification_report(ytest, ypred))
+  cf = classification_report(ytest, ypred)
+  
+st.write(cf)
 
