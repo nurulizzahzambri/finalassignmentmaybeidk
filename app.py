@@ -115,7 +115,7 @@ if plotoption == 'Histogram':
          
   sns.histplot(x = phone_data[optionx]);
          
-elif plotoption == 'Scatter Plot':
+elif plotoption == 'Bar Chart':
   optionx = st.sidebar.selectbox(
      'Select an X',
       ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
@@ -130,7 +130,7 @@ elif plotoption == 'Scatter Plot':
        'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
        'touch_screen', 'wifi', 'price_range'])
          
-  phone_data.plot.scatter(x = optionx, y = optiony)
+  st.bar_chart(x = optionx, y = optiony)
          
 elif plotoption == 'Box Plot':
   optionx = st.sidebar.selectbox(
