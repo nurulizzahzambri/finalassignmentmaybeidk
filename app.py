@@ -90,7 +90,7 @@ elif option == 'Random Forest':
   
 report = classification_report(ytest, ypred, output_dict=True)
 cf = pd.DataFrame(report).transpose() 
-st.write(cf)
+st.write(cf.T)
 
 
 st.write("""
