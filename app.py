@@ -14,7 +14,7 @@ st.write("""
 This app predicts the **Mobile Price Range**!
 """)
 
-url = "https://raw.githubusercontent.com/nurulizzahzambri/finalassignmentmaybeidk/main/test.csv"
+url = "https://raw.githubusercontent.com/nurulizzahzambri/finalassignmentmaybeidk/main/train.csv"
 phone_data = pd.read_csv(url)
 
 st.write(phone_data.head(5))
