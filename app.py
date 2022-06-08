@@ -94,21 +94,21 @@ st.write(cf)
 
 
 st.write("""
-         ## Scatter plot of price range vs ram
+         ## Scatter plot of x vs y
          """)
 
 #fig = plt.figure(figsize=(10, 4))
 #sns.heatmap(phone_data.corr(), cmap = "PuOr", annot = True, vmin = -1, vmax = 1, center = 0)
 #st.pyplot(fig)
 
-x = st.sidebar.selectbox(
+x = st.selectbox(
      'Select an X',
       ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
        'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
        'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
        'touch_screen', 'wifi', 'price_range'])
 
-y = st.sidebar.selectbox(
+y = st.selectbox(
      'Select a y',
       ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
        'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
