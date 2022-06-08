@@ -104,9 +104,7 @@ st.write("""
 st.vega_lite_chart(phone_data, {
      'mark': {'type': 'circle', 'tooltip': True},
      'encoding': {
-         'x': {'field': 'a', 'type': 'quantitative'},
-         'y': {'field': 'b', 'type': 'quantitative'},
-         'size': {'field': 'c', 'type': 'quantitative'},
-         'color': {'field': 'c', 'type': 'quantitative'},
+         'x': {'field': 'price_range', 'type': 'quantitative'},
+         'y': {'field': 'n_cores', 'type': 'quantitative'},
      },
  })
