@@ -97,8 +97,8 @@ st.write("""
          ## The correlation heatmap for the dataset
          """)
 
-fig = plt.figure(figsize=(10, 4))
-sns.heatmap(phone_data.corr(), cmap = "PuOr", annot = True, vmin = -1, vmax = 1, center = 0)
-st.pyplot(fig)
+#fig = plt.figure(figsize=(10, 4))
+#sns.heatmap(phone_data.corr(), cmap = "PuOr", annot = True, vmin = -1, vmax = 1, center = 0)
+#st.pyplot(fig)
 
 st.bar_chart(phone_data['ram'])
