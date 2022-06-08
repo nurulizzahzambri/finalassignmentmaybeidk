@@ -101,4 +101,4 @@ st.write("""
 #sns.heatmap(phone_data.corr(), cmap = "PuOr", annot = True, vmin = -1, vmax = 1, center = 0)
 #st.pyplot(fig)
 
-st.bar_chart(phone_data['price_range'])
+st.vega_lite_chart(phone_data['n_cores'])
