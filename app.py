@@ -53,10 +53,10 @@ n_core = list(phone_data['n_cores'].drop_duplicates())
 int_memories = list(phone_data['int_memory'].drop_duplicates())
 
 ncore_choice = st.sidebar.multiselect(
-    'Choose position:', n_core, default=n_core)
+    'Choose number of cores:', n_core, default=n_core)
 
-intmem_choice = st.sidebar.multiselect(
-    'Choose position:', int_memories, default=int_memories)
+intmem_choice = st.sidebar.slider(
+    'Choose internal memory capacity:', min_value=2, max_value=64, step=1, value=16)
 
 df = phone_data[phone_data['n_cores'].isin(ncore_choice)]
 df = phone_data[phone_data['int_memory'].isin(ncore_choice)]
