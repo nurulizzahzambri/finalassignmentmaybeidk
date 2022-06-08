@@ -43,6 +43,25 @@ st.write(phone_data[['battery_power','clock_speed','fc','int_memory','m_dep','mo
 
 #phone_data.plot.scatter(x = 'optionx', y = 'optiony')
 
+st.write("""
+         ## Filtered DataFrame
+         """)
+
+# filters
+
+n_core = list(phone_data['n_cores'].drop_duplicates())
+int_memories = list(phone_data['int_memory'].drop_duplicates())
+
+ncore_choice = st.sidebar.multiselect(
+    'Choose position:', n_core, default=n_core)
+
+intmem_choice = st.sidebar.multiselect(
+    'Choose position:', int_memories, default=int_memories)
+
+df = phone_data[phone_data['n_cores'].isin(ncore_choice)]
+df = phone_data[phone_data['int_memory'].isin(ncore_choice)]
+
+
 X = phone_data.drop(['price_range'], axis = 1)
 y = phone_data['price_range']
 
