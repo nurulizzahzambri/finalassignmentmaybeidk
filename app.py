@@ -53,7 +53,6 @@ elif option == 'SVM':
   
   report = classification_report(ytest, ypred, output_dict=True)
   cf = pd.DataFrame(report).transpose()
-  cf
   
 
 elif option == 'Logistic Regression':
@@ -65,8 +64,7 @@ elif option == 'Logistic Regression':
   
   report = classification_report(ytest, ypred, output_dict=True)
   cf = pd.DataFrame(report).transpose()
-  cf
-    
+  
 
 elif option == 'Gaussian Naive Bayes':
   st.write('This is the Gaussian Naive Bayes method')
@@ -77,7 +75,6 @@ elif option == 'Gaussian Naive Bayes':
   
   report = classification_report(ytest, ypred, output_dict=True)
   cf = pd.DataFrame(report).transpose()
-  cf
   
   
 elif option == 'Random Forest':
@@ -89,7 +86,7 @@ elif option == 'Random Forest':
   
   report = classification_report(ytest, ypred, output_dict=True)
   cf = pd.DataFrame(report).transpose()
-  cf
+  
   
 st.write(cf)
 
