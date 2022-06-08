@@ -101,4 +101,12 @@ st.write("""
 #sns.heatmap(phone_data.corr(), cmap = "PuOr", annot = True, vmin = -1, vmax = 1, center = 0)
 #st.pyplot(fig)
 
-st.vega_lite_chart(phone_data)
+st.vega_lite_chart(phone_data, {
+     'mark': {'type': 'circle', 'tooltip': True},
+     'encoding': {
+         'x': {'field': 'a', 'type': 'quantitative'},
+         'y': {'field': 'b', 'type': 'quantitative'},
+         'size': {'field': 'c', 'type': 'quantitative'},
+         'color': {'field': 'c', 'type': 'quantitative'},
+     },
+ })
