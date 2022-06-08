@@ -102,8 +102,8 @@ st.write("""
 #st.pyplot(fig)
 
 st.vega_lite_chart(phone_data, {
-     'width': 400,
-     'height': 400,
+     'width': 800,
+     'height': 800,
      'mark': {'type': 'circle', 'tooltip': True},
      'encoding': {
          'x': {'field': 'ram', 'type': 'quantitative'},
