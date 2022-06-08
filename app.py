@@ -19,6 +19,10 @@ phone_data = pd.read_csv(url)
 
 st.write(phone_data.head(5))
 
+st.write("""
+         # The summary of numeric X variables
+         """)
+         
 st.write(phone_data[['battery_power','clock_speed','fc','int_memory','m_dep','mobile_wt','pc','px_height','px_width','ram','sc_h','sc_w','talk_time']].describe())
 
 X = phone_data.drop(['price_range'], axis = 1)
