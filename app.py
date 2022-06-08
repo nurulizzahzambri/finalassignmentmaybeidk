@@ -25,11 +25,21 @@ st.write("""
          
 st.write(phone_data[['battery_power','clock_speed','fc','int_memory','m_dep','mobile_wt','pc','px_height','px_width','ram','sc_h','sc_w','talk_time']].describe())
 
-option = st.sidebar.selectbox(
+optionx = st.sidebar.selectbox(
      'Select an X',
-      [phone_data.columns])
+      ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
+       'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
+       'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
+       'touch_screen', 'wifi', 'price_range'])
 
-phone_data.plot.scatter(x = 'ram', y = 'price_range')
+optiony = st.sidebar.selectbox(
+     'Select a y',
+      ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
+       'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
+       'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
+       'touch_screen', 'wifi', 'price_range'])
+
+phone_data.plot.scatter(x = 'optionx', y = 'optiony')
 
 X = phone_data.drop(['price_range'], axis = 1)
 y = phone_data['price_range']
