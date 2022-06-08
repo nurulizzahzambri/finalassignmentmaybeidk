@@ -19,25 +19,25 @@ phone_data = pd.read_csv(url)
 
 st.write(phone_data.head(5))
 
-st.sidebar.selectbox(
+option = st.sidebar.selectbox(
      'Select a Classification method',
       ['K-NN','SVM','Logistic Regression','Gaussian Naive Bayes','Random Forest'])
 
-if option=='K-NN':
+if option == 'K-NN':
   st.write('This is the K-NN method')
     
 
-elif option=='SVM':
+elif option == 'SVM':
   st.write('This is the SVM method')
   
 
-elif option=='Logistic Regression':
+elif option == 'Logistic Regression':
   st.write('This is the Logistic Regression method')
     
 
-elif option=='Gaussian Naive Bayes':
+elif option == 'Gaussian Naive Bayes':
   st.write('This is the Gaussian Naive Bayes method')
   
   
-elif option=='Random Forest':
+elif option == 'Random Forest':
   st.write('This is the Random Forest method')
