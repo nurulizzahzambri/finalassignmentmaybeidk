@@ -115,7 +115,7 @@ y = st.radio(
        'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
        'touch_screen', 'wifi', 'price_range'])
 
-y, y = st.beta_columns([1,1])
+x, y = st.beta_columns([1,1])
 
 st.vega_lite_chart(phone_data, {
      'width': 800,
