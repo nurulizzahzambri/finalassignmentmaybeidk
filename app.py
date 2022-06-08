@@ -90,7 +90,7 @@ elif option == 'Random Forest':
   
 report = classification_report(ytest, ypred, output_dict=True)
 cf = pd.DataFrame(report).transpose() 
-st.write(cf.T)
+st.write(cf)
 
 
 st.write("""
@@ -101,14 +101,14 @@ st.write("""
 #sns.heatmap(phone_data.corr(), cmap = "PuOr", annot = True, vmin = -1, vmax = 1, center = 0)
 #st.pyplot(fig)
 
-x = st.selectbox(
+x = st.radio(
      'Select an X',
       ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
        'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
        'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
        'touch_screen', 'wifi', 'price_range'])
 
-y = st.selectbox(
+y = st.radio(
      'Select a y',
       ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
        'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
