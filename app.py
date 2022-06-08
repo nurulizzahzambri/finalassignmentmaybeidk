@@ -113,7 +113,7 @@ if plotoption == 'Histogram':
        'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
        'touch_screen', 'wifi', 'price_range'])
          
-  sns.histplot(x = phone_data['optionx']);
+  sns.histplot(x = phone_data[optionx]);
          
 elif plotoption == 'Scatter Plot':
   optionx = st.sidebar.selectbox(
@@ -130,7 +130,7 @@ elif plotoption == 'Scatter Plot':
        'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
        'touch_screen', 'wifi', 'price_range'])
          
-  phone_data.plot.scatter(x = 'optionx', y = 'optiony')
+  phone_data.plot.scatter(x = optionx, y = optiony)
          
 elif plotoption == 'Box Plot':
   optionx = st.sidebar.selectbox(
@@ -140,5 +140,5 @@ elif plotoption == 'Box Plot':
        'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
        'touch_screen', 'wifi', 'price_range'])
 
-  sns.boxplot(data = phone_data, x = 'price_range', y = 'optionx');
+  sns.boxplot(data = phone_data, x = price_range, y = optionx);
       
