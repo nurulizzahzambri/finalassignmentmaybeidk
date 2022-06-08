@@ -25,13 +25,11 @@ st.write("""
          
 st.write(phone_data[['battery_power','clock_speed','fc','int_memory','m_dep','mobile_wt','pc','px_height','px_width','ram','sc_h','sc_w','talk_time']].describe())
 
-X_names = []
-X_names = st.sidebar.multiselect(
-                     'Select X variables.',
-                     phone_data.columns,
-                     default = phone_data.columns,
-                     help = "You may select more than one predictor"
-                     )
+option = st.sidebar.selectbox(
+     'Select an X',
+      [phone_data.columns])
+
+phone_data.plot.scatter(x = 'ram', y = 'price_range')
 
 X = phone_data.drop(['price_range'], axis = 1)
 y = phone_data['price_range']
