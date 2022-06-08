@@ -115,19 +115,24 @@ y = st.radio(
        'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
        'touch_screen', 'wifi', 'price_range'])
 
-col1, col2, col3 = st.columns(3)
+col1, col2 = st.columns(2)
 
 with col1:
-    st.header("A cat")
-    st.image("https://static.streamlit.io/examples/cat.jpg")
+    x = st.radio(
+     'Select an X',
+      ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
+       'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
+       'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
+       'touch_screen', 'wifi', 'price_range'])
 
 with col2:
-    st.header("A dog")
-    st.image("https://static.streamlit.io/examples/dog.jpg")
+    y = st.radio(
+     'Select a y',
+      ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
+       'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
+       'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
+       'touch_screen', 'wifi', 'price_range'])
 
-with col3:
-    st.header("An owl")
-    st.image("https://static.streamlit.io/examples/owl.jpg")
 
 st.vega_lite_chart(phone_data, {
      'width': 800,
