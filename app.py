@@ -57,7 +57,7 @@ intmem_choice = st.sidebar.slider(
     'Choose internal memory capacity:', min_value=2, max_value=64, step=1, value=16)
 
 df = phone_data[phone_data['n_cores'].isin(ncore_choice)]
-df = phone_data[phone_data['int_memory'].isin(ncore_choice)]
+df = phone_data[phone_data['cost'] < intmem_choice]
 
 st.write(df)
 
