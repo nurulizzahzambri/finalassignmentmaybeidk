@@ -40,9 +40,6 @@ if option == 'K-NN':
   knn.fit(Xtrain, ytrain)
   ypred = knn.predict(Xtest)
   
-  report = classification_report(ytest, ypred, output_dict=True)
-  cf = pd.DataFrame(report).transpose()
-  
 
 elif option == 'SVM':
   st.write('This is the SVM method')
@@ -50,9 +47,6 @@ elif option == 'SVM':
   svc = SVC()
   svc.fit(Xtrain, ytrain)
   ypred = svc.predict(Xtest)
-  
-  report = classification_report(ytest, ypred, output_dict=True)
-  cf = pd.DataFrame(report).transpose()
   
 
 elif option == 'Logistic Regression':
@@ -62,9 +56,6 @@ elif option == 'Logistic Regression':
   logreg.fit(Xtrain, ytrain)
   ypred = logreg.predict(Xtest)
   
-  report = classification_report(ytest, ypred, output_dict=True)
-  cf = pd.DataFrame(report).transpose()
-  
 
 elif option == 'Gaussian Naive Bayes':
   st.write('This is the Gaussian Naive Bayes method')
@@ -72,9 +63,6 @@ elif option == 'Gaussian Naive Bayes':
   nb = GaussianNB()
   nb.fit(Xtrain, ytrain)
   ypred = nb.predict(Xtest)
-  
-  report = classification_report(ytest, ypred, output_dict=True)
-  cf = pd.DataFrame(report).transpose()
   
   
 elif option == 'Random Forest':
@@ -84,9 +72,8 @@ elif option == 'Random Forest':
   rf.fit(Xtrain, ytrain)
   ypred = rf.predict(Xtest)
   
-  report = classification_report(ytest, ypred, output_dict=True)
-  cf = pd.DataFrame(report).transpose()
   
-  
+report = classification_report(ytest, ypred, output_dict=True)
+cf = pd.DataFrame(report).transpose() 
 st.write(cf)
 
