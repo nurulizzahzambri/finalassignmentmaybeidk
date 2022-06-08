@@ -59,7 +59,7 @@ intmem_choice = st.sidebar.slider(
 df = phone_data[phone_data['n_cores'].isin(ncore_choice)]
 df = phone_data[phone_data['int_memory'] < intmem_choice]
 
-st.write(df)
+st.dataframe(df)
 
 X = phone_data.drop(['price_range'], axis = 1)
 y = phone_data['price_range']
