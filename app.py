@@ -11,7 +11,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 
 st.write("""
 # Simple Mobile Price Range Machine Learning App
-## This app predicts the **Mobile Price Range** using multiple methods.
+This app predicts the **Mobile Price Range** using multiple methods.
 """)
 
 url = "https://raw.githubusercontent.com/nurulizzahzambri/finalassignmentmaybeidk/main/train.csv"
