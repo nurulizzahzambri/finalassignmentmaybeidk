@@ -20,7 +20,7 @@ phone_data = pd.read_csv(url)
 st.write(phone_data.head(5))
 
 print(phone_data.columns)
-
+'''
 X = phone_data.drop(['price_range'], axis = 1)
 y = phone_data['price_range']
 
@@ -82,3 +82,4 @@ elif option == 'Random Forest':
   ypred = rf.predict(Xtest)
   
   print(classification_report(ytest, ypred))
+'''
