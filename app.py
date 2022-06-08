@@ -42,7 +42,7 @@ if option == 'K-NN':
   
   report = classification_report(ytest, ypred, output_dict=True)
   cf = pd.DataFrame(report).transpose()
-  cf
+  
 
 elif option == 'SVM':
   st.write('This is the SVM method')
