@@ -14,7 +14,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 st.write("""
 # Machine Learning - Mobile Price Range
 This app shows the results of some classification methods to predict the mobile price range based on multiple predictors.
-Get this dataset [here].(https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification?datasetId=11167&sortBy=voteCount)
+Get this dataset (here).[https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification?datasetId=11167&sortBy=voteCount]
 """)
 
 url = "https://raw.githubusercontent.com/nurulizzahzambri/finalassignmentmaybeidk/main/train.csv"
