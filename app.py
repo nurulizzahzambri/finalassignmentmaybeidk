@@ -94,7 +94,7 @@ st.write(cf)
 
 
 st.write("""
-         ## The correlation heatmap for the dataset
+         ## Scatter plot of price range vs ram
          """)
 
 #fig = plt.figure(figsize=(10, 4))
@@ -102,6 +102,8 @@ st.write("""
 #st.pyplot(fig)
 
 st.vega_lite_chart(phone_data, {
+     'width': 400,
+     'height': 400,
      'mark': {'type': 'circle', 'tooltip': True},
      'encoding': {
          'x': {'field': 'ram', 'type': 'quantitative'},
