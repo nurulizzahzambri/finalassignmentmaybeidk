@@ -12,18 +12,30 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 
 st.write("""
-# Simple Mobile Price Range Machine Learning App
-This app predicts the **Mobile Price Range** using multiple methods.
+# Machine Learning - Mobile Price Range
+This app shows the results of some classification methods to predict the mobile price range based on multiple predictors.
+Get this dataset [here].(https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification?datasetId=11167&sortBy=voteCount)
 """)
 
 url = "https://raw.githubusercontent.com/nurulizzahzambri/finalassignmentmaybeidk/main/train.csv"
 phone_data = pd.read_csv(url)
 
 st.write("""
-         ## The summary of numeric X variables
+         ## These are the predictors of this dataset
+         """)
+st.write(phone_data.columns)
+
+st.write("""
+         ## The summary of only numeric X variables
          """)
          
 st.write(phone_data[['battery_power','clock_speed','fc','int_memory','m_dep','mobile_wt','pc','px_height','px_width','ram','sc_h','sc_w','talk_time']].describe())
+
+
+# select type of chart: scatter, histogram, pie
+#if scatter: select x,y
+#if histogram: select x
+#if pie: select x
 
 #optionx = st.sidebar.selectbox(
  #    'Select an X',
@@ -40,26 +52,8 @@ st.write(phone_data[['battery_power','clock_speed','fc','int_memory','m_dep','mo
      #  'touch_screen', 'wifi', 'price_range'])
 
 #phone_data.plot.scatter(x = 'optionx', y = 'optiony')
-
-st.write("""
-         ## Filtered DataFrame
-         """)
-
-# filters
-
-n_core = list(phone_data['n_cores'].drop_duplicates())
-int_memories = list(phone_data['int_memory'].drop_duplicates())
-
-ncore_choice = st.sidebar.multiselect(
-    'Choose number of cores:', n_core, default=n_core)
-
-intmem_choice = st.sidebar.slider(
-    'Choose internal memory capacity:', min_value=2, max_value=64, step=1, value=16)
-
-df = phone_data[phone_data['n_cores'].isin(ncore_choice)]
-df = phone_data[phone_data['int_memory'] < intmem_choice]
-
-st.dataframe(df)
+#phone_data.plt.hist(x = phone_data['optionx'])
+#phone_data.plt.pie(x = phone_data['optionx'])
 
 X = phone_data.drop(['price_range'], axis = 1)
 y = phone_data['price_range']
@@ -76,7 +70,7 @@ option = st.sidebar.selectbox(
       ['K-NN','SVM','Logistic Regression','Gaussian Naive Bayes','Random Forest'])
 
 if option == 'K-NN':
-  st.write('This is the K-NN method')
+  st.write('## Classification Report for K-NN method')
 
   knn = KNeighborsClassifier()
   knn.fit(Xtrain, ytrain)
@@ -84,7 +78,7 @@ if option == 'K-NN':
   
 
 elif option == 'SVM':
-  st.write('This is the SVM method')
+  st.write('## Classification Report for SVM method')
 
   svc = SVC()
   svc.fit(Xtrain, ytrain)
@@ -92,7 +86,7 @@ elif option == 'SVM':
   
 
 elif option == 'Logistic Regression':
-  st.write('This is the Logistic Regression method')
+  st.write('## Classification Report for Logistic Regression method')
 
   logreg = LogisticRegression()
   logreg.fit(Xtrain, ytrain)
@@ -100,7 +94,7 @@ elif option == 'Logistic Regression':
   
 
 elif option == 'Gaussian Naive Bayes':
-  st.write('This is the Gaussian Naive Bayes method')
+  st.write('## Classification Report for Gaussian Naive Bayes method')
 
   nb = GaussianNB()
   nb.fit(Xtrain, ytrain)
@@ -108,7 +102,7 @@ elif option == 'Gaussian Naive Bayes':
   
   
 elif option == 'Random Forest':
-  st.write('This is the Random Forest method')
+  st.write('## Classification Report for Random Forest method')
 
   rf = RandomForestClassifier()
   rf.fit(Xtrain, ytrain)
