@@ -19,6 +19,8 @@ phone_data = pd.read_csv(url)
 
 st.write(phone_data.head(5))
 
+st.write(phone_data.describe())
+
 X = phone_data.drop(['price_range'], axis = 1)
 y = phone_data['price_range']
 
