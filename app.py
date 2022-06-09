@@ -41,8 +41,8 @@ with col1:
     st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
 
 with col2:
-    fig, ax = plt.subplots(figsize=(19, 15))
-    ax.matshow(phone_data.corr(),cmap = 'PuOr' )
+    fig, ax = plt.subplots(figsize=(30, 28))
+    ax.matshow(phone_data.corr(),cmap = 'PuOr_r' )
     #plt.xticks(phone_data.columns, fontsize=14, rotation=45)
     #plt.yticks(phone_data.columns, fontsize=14)
 
