@@ -178,6 +178,8 @@ px_width = st.slider("Phone Width",min_value=500,max_value=1998,value=600,step=1
 px_height = st.slider("Phone Height",min_value=20,max_value=1960,value=100,step=1)
 int_memory = st.slider("Internal memory",min_value=2.0,max_value=64.0,value=32.0,step=0.1)
 
+st.write(pd.DataFrame({'price_range': [0, 1, 2, 3], 'description': ['low cost', 'medium cost', 'high cost', 'very high cost']})
+
 # If button is pressed
 if st.button("Confirm"):
   # Store inputs into dataframe
