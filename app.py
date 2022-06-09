@@ -138,7 +138,6 @@ st.write(cf)
 
 
 
-
 # Header
 st.write("## Price Range Predictor")
 # X = 'int_memory','px_height','px_width','battery_power','ram'
@@ -167,5 +166,5 @@ if st.button("Confirm"):
        prediction = svc.predict(X)[0]
     
        # Output prediction
-       st.text(f"This instance is a {prediction}")
+       st.write(f"This instance is a {prediction}")
    
