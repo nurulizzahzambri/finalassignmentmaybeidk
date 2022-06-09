@@ -38,7 +38,7 @@ st.write("""
 st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
 
 
-fig = px.imshow(phone_data.corr(),color_continuous_scale='RdBu')
+fig = px.imshow(phone_data.corr(),color_continuous_scale='RdBu',zmin=-1,zmax=1)
 st.plotly_chart(fig)
 
          
