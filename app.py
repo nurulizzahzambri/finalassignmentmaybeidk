@@ -24,13 +24,10 @@ Get this mobile phone price range dataset [here](https://www.kaggle.com/datasets
 """)
 
 st.write("""
-Created by Nurul Izzah[Portfolio],(https://sites.google.com/view/izzahwebportfolio)
+Created by Nurul Izzah [Portfolio](https://sites.google.com/view/izzahwebportfolio),[Github](https://github.com/nurulizzahzambri)
 with the assistance and guidance of [Dr. Yu Yong Poh](https://www.linkedin.com/in/yong-poh-yu/) and [Dr. Tan Yan Bin](https://www.linkedin.com/in/yyanbin-tan/)
 """)
 
-st.write("""
-[My Github](https://github.com/nurulizzahzambri)
-""")
 
 url = "https://raw.githubusercontent.com/nurulizzahzambri/finalassignmentmaybeidk/main/train.csv"
 phone_data = pd.read_csv(url)
