@@ -178,12 +178,13 @@ px_width = st.slider("Phone Width",min_value=500,max_value=1998,value=600,step=1
 battery_power = st.slider("Battery Power",min_value=501,max_value=1998,value=600,step=1)
 ram =  st.slider("Ram",min_value=256,max_value=3998,value=400,step=1)
 
-# Store inputs into dataframe
-X = pd.DataFrame([[int_memory,px_height,px_width,battery_power,ram]], 
-                     columns = ["int_memory", "px_height", "px_width","battery_power","ram"])
          
 # If button is pressed
 if st.button("Confirm"):
+  # Store inputs into dataframe
+  X = pd.DataFrame([[int_memory,px_height,px_width,battery_power,ram]], 
+                     columns = ["int_memory", "px_height", "px_width","battery_power","ram"])
+         
   if option == 'K-NN':
     st.write('### predicted price_range')
 
