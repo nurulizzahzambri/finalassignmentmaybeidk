@@ -43,8 +43,8 @@ with col1:
 with col2:
     fig, ax = plt.subplots(figsize=(19, 15))
     ax.matshow(phone_data.corr(),cmap = 'PuOr' )
-    plt.xticks(phone_data.columns, fontsize=14, rotation=45)
-    plt.yticks(phone_data.columns, fontsize=14)
+    #plt.xticks(phone_data.columns, fontsize=14, rotation=45)
+    #plt.yticks(phone_data.columns, fontsize=14)
 
     st.pyplot(fig)
 
