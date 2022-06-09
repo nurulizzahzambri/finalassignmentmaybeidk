@@ -43,9 +43,9 @@ with col1:
 with col2:
     fig, ax = plt.subplots(figsize=(19, 15))
     ax.matshow(phone_data.corr(),cmap = 'PuOr' )
-    plt.xticks(range(phone_data.columns, fontsize=14, rotation=45)
-    plt.yticks(range(phone_data.columns, fontsize=14)
-    cb = plt.colorbar()
+    ax.xticks(range(phone_data.columns, fontsize=14, rotation=45)
+    ax.yticks(range(phone_data.columns, fontsize=14)
+
     st.pyplot(fig)
 
 
