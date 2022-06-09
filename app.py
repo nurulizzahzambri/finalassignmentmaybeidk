@@ -34,7 +34,15 @@ st.write("""
          ## Predictors for this dataset
          We will only use int_memory, px_height, px_width, battery_power, ram for the machine learning as these predictors have the highest correlations with the price_range.
          """)
-st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
+
+with col2:
+    st.write(pd.DataFrame(phone_data.corr()['price_range'].sort_values(),columns = ['Predictors','Correlation Values]))
+
 
 st.write("""
          ## The summary of X variables
@@ -48,9 +56,9 @@ st.write("""
          """)
 st.warning('not all scatter plots are useful, pick x and y wisely')
 
-col1, col2 = st.columns(2)
+col3, col4 = st.columns(2)
 
-with col1:
+with col3:
     x = st.radio(
      'Select an X for the scatter plot and the histogram',
       ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
@@ -58,7 +66,7 @@ with col1:
        'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
        'touch_screen', 'wifi', 'price_range'])
 
-with col2:
+with col4:
     y = st.radio(
      'Select a y for the scatter plot',
       ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
