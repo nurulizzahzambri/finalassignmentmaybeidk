@@ -174,24 +174,66 @@ px_width = st.slider("Phone Width",min_value=500,max_value=1998,value=600,step=1
 battery_power = st.slider("Battery Power",min_value=501,max_value=1998,value=600,step=1)
 ram =  st.slider("Ram",min_value=256,max_value=3998,value=400,step=1)
 
-
-# If button is pressed
-if st.button("Confirm"):
-   
-    st.write("### SVM Method")
-    # Unpickle classifier
-    #svc = joblib.load("svc.pkl")
-    svc = SVC()
-    svc.fit(Xtrain, ytrain)
-    ypred = svc.predict(Xtest)
-         
-    # Store inputs into dataframe
+# Store inputs into dataframe
     X = pd.DataFrame([[int_memory,px_height,px_width,battery_power,ram]], 
                      columns = ["int_memory", "px_height", "px_width","bttery_power","ram"])
+         
+# If button is pressed
+if st.button("Confirm"):
+    if option == 'K-NN':
+       st.write('## Classification Report for K-NN method')
+
+       knn = KNeighborsClassifier()
+       knn.fit(Xtrain, ytrain)
+       ypred = knn.predict(Xtest)
+  
+       # Get prediction
+       prediction = knn.predict(X)[0]
+
+     elif option == 'SVM':
+       st.write('## Classification Report for SVM method')
+
+       svc = SVC()
+       svc.fit(Xtrain, ytrain)
+       ypred = svc.predict(Xtest)
+       
+       # Get prediction
+       prediction = svc.predict(X)[0]
+         
+
+     elif option == 'Logistic Regression':
+       st.write('## Classification Report for Logistic Regression method')
+
+       logreg = LogisticRegression()
+       logreg.fit(Xtrain, ytrain)
+       ypred = logreg.predict(Xtest)
+         
+       # Get prediction
+       prediction = logreg.predict(X)[0]
+  
+
+     elif option == 'Gaussian Naive Bayes':
+       st.write('## Classification Report for Gaussian Naive Bayes method')
+
+       nb = GaussianNB()
+       nb.fit(Xtrain, ytrain)
+       ypred = nb.predict(Xtest)
+         
+       # Get prediction
+       prediction = nb.predict(X)[0]
+  
+  
+     elif option == 'Random Forest':
+       st.write('## Classification Report for Random Forest method')
+
+       rf = RandomForestClassifier()
+       rf.fit(Xtrain, ytrain)
+       ypred = rf.predict(Xtest)
+ 
+       # Get prediction
+       prediction = rf.predict(X)[0]
     
-    # Get prediction
-    prediction = svc.predict(X)[0]
-    
-    # Output prediction
-    st.write(f"This instance is a {prediction}")
+
+   # Output prediction
+   st.write(f"This instance is a {prediction}")
    
