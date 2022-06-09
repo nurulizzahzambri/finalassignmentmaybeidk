@@ -242,13 +242,13 @@ if st.button("Confirm"):
   st.write(pd.DataFrame({'price_range': [0, 1, 2, 3], 'description': ['low cost', 'medium cost', 'high cost', 'very high cost']}))
   col6, col7, col8 = st.columns(3)
 
-  with col1:
+  with col6:
       st.empty()
 
-  with col2:
+  with col7:
       st.write("-Thank you for using my app! Have a lovely day.-")
 
-  with col3:
+  with col8:
       st.empty()
 
 
