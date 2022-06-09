@@ -119,7 +119,7 @@ option = st.sidebar.selectbox(
       ['K-NN','SVM','Logistic Regression','Gaussian Naive Bayes','Random Forest'])
 
 if option == 'K-NN':
-  st.write('## Chosen method: K-NN')
+  st.write('## Chosen classification method: K-NN')
   
   knn = KNeighborsClassifier()
   knn.fit(Xtrain, ytrain)
@@ -127,7 +127,7 @@ if option == 'K-NN':
   
 
 elif option == 'SVM':
-  st.write('## Chosen method: SVM ')
+  st.write('## Chosen classification method: SVM ')
         
   svc = SVC()
   svc.fit(Xtrain, ytrain)
@@ -137,7 +137,7 @@ elif option == 'SVM':
   
 
 elif option == 'Logistic Regression':
-  st.write('## Chosen method: Logistic Regression')
+  st.write('## Chosen classification method: Logistic Regression')
          
   logreg = LogisticRegression()
   logreg.fit(Xtrain, ytrain)
@@ -145,7 +145,7 @@ elif option == 'Logistic Regression':
   
 
 elif option == 'Gaussian Naive Bayes':
-  st.write('## Chosen method: Gaussian Naive Bayes')
+  st.write('## Chosen classification method: Gaussian Naive Bayes')
          
   nb = GaussianNB()
   nb.fit(Xtrain, ytrain)
@@ -153,7 +153,7 @@ elif option == 'Gaussian Naive Bayes':
   
   
 elif option == 'Random Forest':
-  st.write('## Chosen method: Random Forest')
+  st.write('## Chosen classification method: Random Forest')
   
   rf = RandomForestClassifier()
   rf.fit(Xtrain, ytrain)
