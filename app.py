@@ -180,58 +180,58 @@ X = pd.DataFrame([[int_memory,px_height,px_width,battery_power,ram]],
          
 # If button is pressed
 if st.button("Confirm"):
-    if option == 'K-NN':
-       st.write('## Classification Report for K-NN method')
+  if option == 'K-NN':
+     st.write('## Classification Report for K-NN method')
 
-       knn = KNeighborsClassifier()
-       knn.fit(Xtrain, ytrain)
-       ypred = knn.predict(Xtest)
+     knn = KNeighborsClassifier()
+     knn.fit(Xtrain, ytrain)
+     ypred = knn.predict(Xtest)
   
-       # Get prediction
-       prediction = knn.predict(X)[0]
+     # Get prediction
+     prediction = knn.predict(X)[0]
 
-     elif option == 'SVM':
-       st.write('## Classification Report for SVM method')
+   elif option == 'SVM':
+     st.write('## Classification Report for SVM method')
 
-       svc = SVC()
-       svc.fit(Xtrain, ytrain)
-       ypred = svc.predict(Xtest)
+     svc = SVC()
+     svc.fit(Xtrain, ytrain)
+     ypred = svc.predict(Xtest)
        
-       # Get prediction
-       prediction = svc.predict(X)[0]
+     # Get prediction
+     prediction = svc.predict(X)[0]
          
 
-     elif option == 'Logistic Regression':
-       st.write('## Classification Report for Logistic Regression method')
+   elif option == 'Logistic Regression':
+     st.write('## Classification Report for Logistic Regression method')
 
-       logreg = LogisticRegression()
-       logreg.fit(Xtrain, ytrain)
-       ypred = logreg.predict(Xtest)
+     logreg = LogisticRegression()
+     logreg.fit(Xtrain, ytrain)
+     ypred = logreg.predict(Xtest)
          
-       # Get prediction
-       prediction = logreg.predict(X)[0]
+     # Get prediction
+     prediction = logreg.predict(X)[0]
   
 
-     elif option == 'Gaussian Naive Bayes':
-       st.write('## Classification Report for Gaussian Naive Bayes method')
+   elif option == 'Gaussian Naive Bayes':
+     st.write('## Classification Report for Gaussian Naive Bayes method')
 
-       nb = GaussianNB()
-       nb.fit(Xtrain, ytrain)
-       ypred = nb.predict(Xtest)
+     nb = GaussianNB()
+     nb.fit(Xtrain, ytrain)
+     ypred = nb.predict(Xtest)
          
-       # Get prediction
-       prediction = nb.predict(X)[0]
+     # Get prediction
+     prediction = nb.predict(X)[0]
   
   
-     elif option == 'Random Forest':
-       st.write('## Classification Report for Random Forest method')
+   elif option == 'Random Forest':
+     st.write('## Classification Report for Random Forest method')
 
-       rf = RandomForestClassifier()
-       rf.fit(Xtrain, ytrain)
-       ypred = rf.predict(Xtest)
+     rf = RandomForestClassifier()
+     rf.fit(Xtrain, ytrain)
+     ypred = rf.predict(Xtest)
  
-       # Get prediction
-       prediction = rf.predict(X)[0]
+     # Get prediction
+     prediction = rf.predict(X)[0]
     
 
    # Output prediction
