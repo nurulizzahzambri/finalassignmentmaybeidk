@@ -41,8 +41,12 @@ with col1:
     st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
 
 with col2:
-    corr = phone_data.corr()
-    corr.style.background_gradient(cmap='coolwarm').set_precision(2)
+    fig, ax = plt.subplots(figsize=(19, 15))
+    ax.matshow(phone_data.corr(),cmap = 'PuOr' )
+    plt.xticks(range(phone_data.columns, fontsize=14, rotation=45)
+    plt.yticks(range(phone_data.columns, fontsize=14)
+    cb = plt.colorbar()
+    st.pyplot(fig)
 
 
 st.write("""
