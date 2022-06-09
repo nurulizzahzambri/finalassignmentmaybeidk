@@ -170,6 +170,7 @@ st.write(cf)
 st.write("### Price Range Predictor")
 
 st.write('Predictors are sorted from the highest correlation to the lowest with the price_range')
+st.write('Please wait until streamlit stops running after choosing the value for each predictor')
 
 # Input bars
 ram =  st.slider("Ram",min_value=256,max_value=3998,value=400,step=1)
