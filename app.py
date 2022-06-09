@@ -77,28 +77,14 @@ st.vega_lite_chart(phone_data, {
      },
  })
 
-arr = phone_data['battery_power']
-arry = phone_data['ram']
-fig, ax = plt.subplots()
-ax.scatter(arr,arry)
-ax.set_xlabel("battery_power")
-ax.set_ylabel("ram")
-st.pyplot(fig)
 
-arr = phone_data['battery_power']
+arr = phone_data[x]
 fig, ax = plt.subplots()
 ax.hist(arr)
-ax.set_xlabel("battery_power")
+ax.set_xlabel(f"{x}")
 ax.set_ylabel("count")
 st.pyplot(fig)
 
-arr = phone_data['battery_power']
-arry = phone_data['price_range']
-fig, ax = plt.subplots()
-ax.bar(arr,arry,width=1,linewidth=0.7)
-ax.set_xlabel("battery_power")
-ax.set_ylabel("price_range")
-st.pyplot(fig)
 
 X = phone_data[['int_memory', 'px_height', 'px_width', 'battery_power', 'ram']]
 y = phone_data['price_range']
@@ -167,7 +153,7 @@ st.write(cf)
 
 
 # Header
-st.write("## Price Range Predictor")
+st.write("### Price Range Predictor")
 # X = 'int_memory','px_height','px_width','battery_power','ram'
 # Input bar 1
 int_memory = st.slider("Internal memory",min_value=2.0,max_value=64.0,value=32.0,step=0.1)
@@ -186,38 +172,38 @@ if st.button("Confirm"):
                      columns = ["int_memory", "px_height", "px_width","battery_power","ram"])
          
   if option == 'K-NN':
-    st.write('### predicted price_range')
+    st.write('#### predicted price_range')
 
     # Get prediction
     prediction = knn.predict(X)[0]
 
   elif option == 'SVM':
-    st.write('### predicted price_range')
+    st.write('#### predicted price_range')
 
     # Get prediction
     prediction = svc.predict(X)[0]
          
 
   elif option == 'Logistic Regression':
-    st.write('### predicted price_range')
+    st.write('#### predicted price_range')
    
     # Get prediction
     prediction = logreg.predict(X)[0]
   
 
   elif option == 'Gaussian Naive Bayes':
-    st.write('### predicted price_range')
+    st.write('#### predicted price_range')
 
     # Get prediction
     prediction = nb.predict(X)[0]
   
   
   elif option == 'Random Forest':
-    st.write('### predicted price_range')
+    st.write('#### predicted price_range')
 
     # Get prediction
     prediction = rf.predict(X)[0]
     
 
   # Output prediction
-  st.write(f"This price range is {prediction}")
+  st.write(f"This mobile phone's predicted price range is {prediction}")
