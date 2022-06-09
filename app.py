@@ -18,10 +18,12 @@ from sklearn.metrics import classification_report, confusion_matrix
 
 st.write("""
 # Machine Learning - Mobile Price Range
-This app shows lets user choose a few classification methods to predict mobile price ranges based on multiple predictors, as well as some informations such as the classification report of those methods.
+This app shows lets user choose a few classification methods to predict mobile price ranges based on multiple predictors, as well as some other useful informations such as the scatter plot, histogram, and the classification report of those methods.
 """)
 st.write("""
 Get this mobile phone price range dataset [here](https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification?datasetId=11167&sortBy=voteCount)
+""")
+st.write("""
 [My Github](https://github.com/nurulizzahzambri)
 """)
 
@@ -30,7 +32,7 @@ phone_data = pd.read_csv(url)
 
 st.write("""
          ## These are the predictors for this dataset
-         we will only use int_memory, px_height, px_width, battery_power, ram for the machine learning as these predictors have te highest correlations with the price_range
+         We will only use int_memory, px_height, px_width, battery_power, ram for the machine learning as these predictors have the highest correlations with the price_range.
          """)
 st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
 
@@ -41,16 +43,10 @@ st.write("""
          
 st.write(phone_data[['battery_power','clock_speed','fc','int_memory','m_dep','mobile_wt','pc','px_height','px_width','ram','sc_h','sc_w','talk_time']].describe())
 
-
 st.write("""
-         ## Scatter plot of x vs y (user selection)
-         Choose an x and a y to be visualized in a scatter plot
+         ## Scatter Plot of x vs y
          """)
-
-#fig = plt.figure(figsize=(10, 4))
-#sns.heatmap(phone_data.corr(), cmap = "PuOr", annot = True, vmin = -1, vmax = 1, center = 0)
-#st.pyplot(fig)
-
+st.warning('not all scatter plots are useful, pick x and y wisely')
 
 col1, col2 = st.columns(2)
 
@@ -90,7 +86,7 @@ arr = phone_data[x]
 fig, ax = plt.subplots()
 ax.hist(arr)
 ax.set_xlabel(f"{x}")
-ax.set_ylabel("count")
+ax.set_ylabel("Frequency")
 st.pyplot(fig)
 
 
@@ -109,18 +105,16 @@ option = st.sidebar.selectbox(
       ['K-NN','SVM','Logistic Regression','Gaussian Naive Bayes','Random Forest'])
 
 if option == 'K-NN':
-  st.write('## K-NN method')
-  st.write('### Classification Report')
-
+  st.write('## Chosen method: K-NN')
+  
   knn = KNeighborsClassifier()
   knn.fit(Xtrain, ytrain)
   ypred = knn.predict(Xtest)
   
 
 elif option == 'SVM':
-  st.write('## SVM method')
-  st.write('### Classification Report')
-         
+  st.write('## Chosen method: SVM ')
+        
   svc = SVC()
   svc.fit(Xtrain, ytrain)
   ypred = svc.predict(Xtest)
@@ -129,8 +123,7 @@ elif option == 'SVM':
   
 
 elif option == 'Logistic Regression':
-  st.write('## Logistic Regression method')
-  st.write('### Classification Report')
+  st.write('## Chosen method: Logistic Regression')
          
   logreg = LogisticRegression()
   logreg.fit(Xtrain, ytrain)
@@ -138,8 +131,7 @@ elif option == 'Logistic Regression':
   
 
 elif option == 'Gaussian Naive Bayes':
-  st.write('## Gaussian Naive Bayes method')
-  st.write('### Classification Report')
+  st.write('## Chosen method: Gaussian Naive Bayes')
          
   nb = GaussianNB()
   nb.fit(Xtrain, ytrain)
@@ -147,13 +139,13 @@ elif option == 'Gaussian Naive Bayes':
   
   
 elif option == 'Random Forest':
-  st.write('## Random Forest method')
-  st.write('### Classification Report')
+  st.write('## Chosen method: Random Forest')
+  
   rf = RandomForestClassifier()
   rf.fit(Xtrain, ytrain)
   ypred = rf.predict(Xtest)
   
-  
+st.write('### Classification Report')  
 report = classification_report(ytest, ypred, output_dict=True)
 cf = pd.DataFrame(report).transpose() 
 st.write(cf)
