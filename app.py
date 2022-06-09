@@ -135,7 +135,6 @@ cf = pd.DataFrame(report).transpose()
 st.write(cf)
 
 
-
 joblib.dump(svc, "svc.pkl")
 
 # Header
@@ -160,7 +159,6 @@ if st.button("Confirm"):
     # Store inputs into dataframe
     X = pd.DataFrame([[int_memory,px_height,px_width,battery_power,ram]], 
                      columns = ["int_memory", "px_height", "px_width","bttery_power","ram"])
-    X = X.replace(["Brown", "Blue"], [1, 0])
     
     # Get prediction
     prediction = svc.predict(X)[0]
