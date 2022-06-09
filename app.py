@@ -153,18 +153,17 @@ ram =  st.slider("Ram",min_value=256,max_value=3998,value=400,step=1)
 
 # If button is pressed
 if st.button("Confirm"):
+   
+    # Unpickle classifier
+    svc = joblib.load("svc.pkl")
     
-    if option == 'SVM':
-       # Unpickle classifier
-       svc = joblib.load("svc.pkl")
-    
-       # Store inputs into dataframe
-       X = pd.DataFrame([[int_memory,px_height,px_width,battery_power,ram]], 
+    # Store inputs into dataframe
+    X = pd.DataFrame([[int_memory,px_height,px_width,battery_power,ram]], 
                      columns = ["int_memory", "px_height", "px_width","bttery_power","ram"])
     
-       # Get prediction
-       prediction = svc.predict(X)[0]
+    # Get prediction
+    prediction = svc.predict(X)[0]
     
-       # Output prediction
-       st.write(f"This instance is a {prediction}")
+    # Output prediction
+    st.write(f"This instance is a {prediction}")
    
