@@ -42,7 +42,7 @@ with col1:
 
 with col2:
     fig, ax = plt.subplots()
-    ax.plt.matshow(dataframe.corr())
+    ax.matshow(phone_data.corr())
     st.pyplot(fig)
 
 
