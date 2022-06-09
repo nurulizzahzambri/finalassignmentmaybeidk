@@ -76,7 +76,7 @@ st.vega_lite_chart(phone_data, {
 
 
 
-X = phone_data([['int_memory','px_height','px_width','battery_power','ram']], axis = 1)
+X = phone_data[['int_memory', 'px_height', 'px_width', 'battery_power', 'ram']]
 y = phone_data['price_range']
 
 # split data
@@ -135,7 +135,6 @@ cf = pd.DataFrame(report).transpose()
 st.write(cf)
 
 
-import joblib
 
 joblib.dump(svc, "svc.pkl")
 
