@@ -240,15 +240,15 @@ if st.button("Confirm"):
   # Output prediction and price range description table
   st.write(f"This mobile phone's predicted price range is {prediction}")
   st.write(pd.DataFrame({'price_range': [0, 1, 2, 3], 'description': ['low cost', 'medium cost', 'high cost', 'very high cost']}))
+  col6, col7, col8 = st.columns(3)
+
+  with col1:
+      st.empty()
+
+  with col2:
+      st.write("-Thank you for using my app! Have a lovely day.-")
+
+  with col3:
+      st.empty()
 
 
-col6, col7, col8 = st.columns(3)
-
-with col1:
-    st.empty()
-
-with col2:
-    st.write("-Thank you for using my app! Have a lovely day.-")
-
-with col3:
-    st.empty()
