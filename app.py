@@ -78,11 +78,11 @@ st.vega_lite_chart(phone_data, {
  })
 
 arr = phone_data['battery_power']
-arry = phone_data['ram']
+#arry = phone_data['ram']
 fig, ax = plt.subplots()
-ax.hist(arr,arry, bins=10)
+ax.scatter(arr)
 ax.set_xlabel("battery_power")
-ax.set_ylabel("ram")
+ax.set_ylabel("count")
 
 st.pyplot(fig)
 
