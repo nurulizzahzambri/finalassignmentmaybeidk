@@ -16,7 +16,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 
 st.write("""
-# Machine Learning - Mobile Phone Price Range Classification and Prediction
+# Machine Learning - Mobile Phone Price Range
 This app lets user choose a few classification methods to predict mobile price ranges based on multiple predictors, as well as some other useful informations such as the scatter plot, histogram, and the classification report of those methods.
 """)
 st.write("""
