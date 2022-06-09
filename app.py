@@ -188,31 +188,19 @@ if st.button("Confirm"):
   if option == 'K-NN':
     st.write('### predicted price_range')
 
-    knn = KNeighborsClassifier()
-    knn.fit(Xtrain, ytrain)
-    ypred = knn.predict(Xtest)
-  
     # Get prediction
     prediction = knn.predict(X)[0]
 
   elif option == 'SVM':
     st.write('### predicted price_range')
 
-    svc = SVC()
-    svc.fit(Xtrain, ytrain)
-    ypred = svc.predict(Xtest)
-       
     # Get prediction
     prediction = svc.predict(X)[0]
          
 
   elif option == 'Logistic Regression':
     st.write('### predicted price_range')
-
-    logreg = LogisticRegression()
-    logreg.fit(Xtrain, ytrain)
-    ypred = logreg.predict(Xtest)
-         
+   
     # Get prediction
     prediction = logreg.predict(X)[0]
   
@@ -220,10 +208,6 @@ if st.button("Confirm"):
   elif option == 'Gaussian Naive Bayes':
     st.write('### predicted price_range')
 
-    nb = GaussianNB()
-    nb.fit(Xtrain, ytrain)
-    ypred = nb.predict(Xtest)
-         
     # Get prediction
     prediction = nb.predict(X)[0]
   
@@ -231,10 +215,6 @@ if st.button("Confirm"):
   elif option == 'Random Forest':
     st.write('### predicted price_range')
 
-    rf = RandomForestClassifier()
-    rf.fit(Xtrain, ytrain)
-    ypred = rf.predict(Xtest)
- 
     # Get prediction
     prediction = rf.predict(X)[0]
     
