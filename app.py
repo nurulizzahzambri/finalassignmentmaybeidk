@@ -87,7 +87,7 @@ st.pyplot(fig)
 
 arr = phone_data['battery_power']
 fig, ax = plt.subplots()
-ax.scatter(arr,bin = 10)
+ax.hist(arr)
 ax.set_xlabel("battery_power")
 ax.set_ylabel("count")
 st.pyplot(fig)
