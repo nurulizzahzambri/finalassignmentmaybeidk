@@ -115,7 +115,8 @@ option = st.sidebar.selectbox(
       ['K-NN','SVM','Logistic Regression','Gaussian Naive Bayes','Random Forest'])
 
 if option == 'K-NN':
-  st.write('## Classification Report for K-NN method')
+  st.write('## K-NN method')
+  st.write('### Classification Report')
 
   knn = KNeighborsClassifier()
   knn.fit(Xtrain, ytrain)
@@ -123,8 +124,9 @@ if option == 'K-NN':
   
 
 elif option == 'SVM':
-  st.write('## Classification Report for SVM method')
-
+  st.write('## SVM method')
+  st.write('### Classification Report')
+         
   svc = SVC()
   svc.fit(Xtrain, ytrain)
   ypred = svc.predict(Xtest)
@@ -133,24 +135,26 @@ elif option == 'SVM':
   
 
 elif option == 'Logistic Regression':
-  st.write('## Classification Report for Logistic Regression method')
-
+  st.write('## Logistic Regression method')
+  st.write('### Classification Report')
+         
   logreg = LogisticRegression()
   logreg.fit(Xtrain, ytrain)
   ypred = logreg.predict(Xtest)
   
 
 elif option == 'Gaussian Naive Bayes':
-  st.write('## Classification Report for Gaussian Naive Bayes method')
-
+  st.write('## Gaussian Naive Bayes method')
+  st.write('### Classification Report')
+         
   nb = GaussianNB()
   nb.fit(Xtrain, ytrain)
   ypred = nb.predict(Xtest)
   
   
 elif option == 'Random Forest':
-  st.write('## Classification Report for Random Forest method')
-
+  st.write('## Random Forest method')
+  st.write('### Classification Report')
   rf = RandomForestClassifier()
   rf.fit(Xtrain, ytrain)
   ypred = rf.predict(Xtest)
@@ -181,7 +185,7 @@ X = pd.DataFrame([[int_memory,px_height,px_width,battery_power,ram]],
 # If button is pressed
 if st.button("Confirm"):
   if option == 'K-NN':
-    st.write('## Classification Report for K-NN method')
+    st.write('### predicted price_range')
 
     knn = KNeighborsClassifier()
     knn.fit(Xtrain, ytrain)
@@ -191,7 +195,7 @@ if st.button("Confirm"):
     prediction = knn.predict(X)[0]
 
   elif option == 'SVM':
-    st.write('## Classification Report for SVM method')
+    st.write('### predicted price_range')
 
     svc = SVC()
     svc.fit(Xtrain, ytrain)
@@ -202,7 +206,7 @@ if st.button("Confirm"):
          
 
   elif option == 'Logistic Regression':
-    st.write('## Classification Report for Logistic Regression method')
+    st.write('### predicted price_range')
 
     logreg = LogisticRegression()
     logreg.fit(Xtrain, ytrain)
@@ -213,7 +217,7 @@ if st.button("Confirm"):
   
 
   elif option == 'Gaussian Naive Bayes':
-    st.write('## Classification Report for Gaussian Naive Bayes method')
+    st.write('### predicted price_range')
 
     nb = GaussianNB()
     nb.fit(Xtrain, ytrain)
@@ -224,7 +228,7 @@ if st.button("Confirm"):
   
   
   elif option == 'Random Forest':
-    st.write('## Classification Report for Random Forest method')
+    st.write('### predicted price_range')
 
     rf = RandomForestClassifier()
     rf.fit(Xtrain, ytrain)
@@ -235,4 +239,4 @@ if st.button("Confirm"):
     
 
   # Output prediction
-  st.write(f"This instance is a {prediction}")
+  st.write(f"This price range is {prediction}")
