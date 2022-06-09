@@ -157,15 +157,15 @@ if st.button("Confirm"):
     
     if option == 'SVM':
        # Unpickle classifier
-    svc = joblib.load("svc.pkl")
+       svc = joblib.load("svc.pkl")
     
-    # Store inputs into dataframe
-    X = pd.DataFrame([[int_memory,px_height,px_width,battery_power,ram]], 
+       # Store inputs into dataframe
+       X = pd.DataFrame([[int_memory,px_height,px_width,battery_power,ram]], 
                      columns = ["int_memory", "px_height", "px_width","bttery_power","ram"])
     
-    # Get prediction
-    prediction = svc.predict(X)[0]
+       # Get prediction
+       prediction = svc.predict(X)[0]
     
-    # Output prediction
-    st.text(f"This instance is a {prediction}")
+       # Output prediction
+       st.text(f"This instance is a {prediction}")
    
