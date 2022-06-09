@@ -35,12 +35,20 @@ st.write("""
          """)
 
 
-st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.empty()
+
+with col2:
+    st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
+
+with col3:
+    st.empty()
 
 
 fig = px.imshow(phone_data.corr(),color_continuous_scale='RdBu',zmin=-1,zmax=1)
 st.plotly_chart(fig)
-
          
 st.write("""
          ## The summary of X variables
@@ -54,9 +62,9 @@ st.write("""
          """)
 st.warning('not all scatter plots are useful, pick x and y wisely')
 
-col3, col4 = st.columns(2)
+col4, col5 = st.columns(2)
 
-with col3:
+with col4:
     x = st.radio(
      'Select an X for the scatter plot and the histogram',
       ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
@@ -64,7 +72,7 @@ with col3:
        'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
        'touch_screen', 'wifi', 'price_range'])
 
-with col4:
+with col5:
     y = st.radio(
      'Select a y for the scatter plot',
       ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
