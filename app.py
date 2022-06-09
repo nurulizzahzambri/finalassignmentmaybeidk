@@ -220,4 +220,4 @@ if st.button("Confirm"):
 
   # Output prediction
   st.write(f"This mobile phone's predicted price range is {prediction}")
-  st.write(pd.DataFrame({'price_range': [0, 1, 2, 3], 'description': ['low cost', 'medium cost', 'high cost', 'very high cost']})
+  st.write(pd.DataFrame({'price_range': [0, 1, 2, 3], 'description': ['low cost', 'medium cost', 'high cost', 'very high cost']}))
