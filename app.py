@@ -39,7 +39,7 @@ st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
 
 
 fig = px.imshow(phone_data.corr())
-st.plotly(fig)
+st.plotly_chart(fig)
 
          
 st.write("""
