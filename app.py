@@ -105,7 +105,7 @@ elif option == 'SVM':
   svc.fit(Xtrain, ytrain)
   ypred = svc.predict(Xtest)
          
-  joblib.dump(svc, "svc.pkl")
+ # joblib.dump(svc, "svc.pkl")
   
 
 elif option == 'Logistic Regression':
@@ -154,9 +154,13 @@ ram =  st.slider("Ram",min_value=256,max_value=3998,value=400,step=1)
 # If button is pressed
 if st.button("Confirm"):
    
+    st.write("### SVM Method")
     # Unpickle classifier
-    svc = joblib.load("svc.pkl")
-    
+    #svc = joblib.load("svc.pkl")
+    svc = SVC()
+    svc.fit(Xtrain, ytrain)
+    ypred = svc.predict(Xtest)
+         
     # Store inputs into dataframe
     X = pd.DataFrame([[int_memory,px_height,px_width,battery_power,ram]], 
                      columns = ["int_memory", "px_height", "px_width","bttery_power","ram"])
