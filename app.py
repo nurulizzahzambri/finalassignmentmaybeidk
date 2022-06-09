@@ -95,7 +95,7 @@ st.pyplot(fig)
 arr = phone_data['battery_power']
 arry = phone_data['price_range']
 fig, ax = plt.subplots()
-ax.bar(arr,bin = 10)
+ax.bar(arr,arry,width=1,linewidth=0.7)
 ax.set_xlabel("battery_power")
 ax.set_ylabel("price_range")
 st.pyplot(fig)
