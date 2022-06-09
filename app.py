@@ -4,9 +4,8 @@ import seaborn as sns
 import joblib
 
 import matplotlib.pyplot as plt
-import numpy as np
+import plotly.express as px
 
-# import matplotlib.pyplot as plt
 
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
@@ -41,14 +40,10 @@ with col1:
     st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
 
 with col2:
-    fig, ax = plt.subplots(figsize=(30, 28))
-    ax.matshow(phone_data.corr(),cmap = 'PuOr_r' )
-    #plt.xticks(phone_data.columns, fontsize=14, rotation=45)
-    #plt.yticks(phone_data.columns, fontsize=14)
+    fig = px.imshow(phone_data.corr())
+    fig.show()
 
-    st.pyplot(fig)
-
-
+         
 st.write("""
          ## The summary of X variables
          This table summarizes only Xs with numeric entries.
