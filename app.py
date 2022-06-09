@@ -41,7 +41,7 @@ with col1:
     st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
 
 with col2:
-    st.write(pd.DataFrame(phone_data.corr()['price_range'].sort_values(),columns = ['Predictors','Correlation Values]))
+    st.write(pd.DataFrame(phone_data.corr()['price_range'].sort_values(),columns = ['Predictors','Correlation Values']))
 
 
 st.write("""
