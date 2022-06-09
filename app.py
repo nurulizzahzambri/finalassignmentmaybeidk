@@ -77,7 +77,7 @@ st.vega_lite_chart(phone_data, {
      },
  })
 
-arr = np.random.normal(1, 1, size=100)
+arr = phone_data['battery_power']
 fig, ax = plt.subplots()
 ax.hist(arr, bins=20)
 
