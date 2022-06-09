@@ -176,7 +176,7 @@ ram =  st.slider("Ram",min_value=256,max_value=3998,value=400,step=1)
 
 # Store inputs into dataframe
 X = pd.DataFrame([[int_memory,px_height,px_width,battery_power,ram]], 
-                     columns = ["int_memory", "px_height", "px_width","bttery_power","ram"])
+                     columns = ["int_memory", "px_height", "px_width","battery_power","ram"])
          
 # If button is pressed
 if st.button("Confirm"):
