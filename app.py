@@ -65,6 +65,13 @@ st.write("""
          
 st.write(phone_data[['battery_power','clock_speed','fc','int_memory','m_dep','mobile_wt','pc','px_height','px_width','ram','sc_h','sc_w','talk_time']].describe())
 
+# y variable description
+st.write("""
+         ## The description of y variable
+         This table describes the entries of y variable.
+         """)
+st.write(pd.DataFrame({'price_range': [0, 1, 2, 3], 'description': ['low cost', 'medium cost', 'high cost', 'very high cost']}))
+
 # Scatter plot with user input x and y
 st.write("""
          ## Scatter Plot of x vs y
