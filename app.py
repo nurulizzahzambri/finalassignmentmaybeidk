@@ -34,9 +34,6 @@ st.write("""
          
 st.write(phone_data[['battery_power','clock_speed','fc','int_memory','m_dep','mobile_wt','pc','px_height','px_width','ram','sc_h','sc_w','talk_time']].describe())
 
-X = phone_data.drop(['price_range'], axis = 1)
-y = phone_data['price_range']
-
 
 st.write("""
          ## Scatter plot of x vs y
@@ -75,6 +72,11 @@ st.vega_lite_chart(phone_data, {
          'y': {'field': y, 'type': 'quantitative'},
      },
  })
+
+
+
+X = phone_data.drop(['price_range'], axis = 1)
+y = phone_data['price_range']
 
 # split data
 from sklearn.model_selection import train_test_split
