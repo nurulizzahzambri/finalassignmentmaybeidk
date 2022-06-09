@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import seaborn as sns
+import joblib
 
 # import matplotlib.pyplot as plt
 
@@ -75,7 +76,7 @@ st.vega_lite_chart(phone_data, {
 
 
 
-X = phone_data.drop(['price_range'], axis = 1)
+X = phone_data([['int_memory','px_height','px_width','battery_power','ram']], axis = 1)
 y = phone_data['price_range']
 
 # split data
@@ -132,3 +133,38 @@ elif option == 'Random Forest':
 report = classification_report(ytest, ypred, output_dict=True)
 cf = pd.DataFrame(report).transpose() 
 st.write(cf)
+
+
+import joblib
+
+joblib.dump(svc, "svc.pkl")
+
+# Header
+st.write("## Price Range Predictor")
+# X = 'int_memory','px_height','px_width','battery_power','ram'
+# Input bar 1
+int_memory = st.slider("Internal memory",min=2,max=64,value=32.0,step=0.1)
+
+# Input bar 2:5
+px_height = st.slider("Phone Height",min=20,max=1960,value=100,step=1)
+px_width = st.slider("Phone Width",min=500,max=1998,value=600,step=1)
+battery_power = st.slider("Battery Power",min=501,max=1998,value=600,step=1)
+ram =  st.slider("Ram",min=256,max=3998,value=400,step=1)
+
+
+# If button is pressed
+if st.button("Confirm"):
+    
+    # Unpickle classifier
+    svc = joblib.load("svc.pkl")
+    
+    # Store inputs into dataframe
+    X = pd.DataFrame([[int_memory,px_height,px_width,battery_power,ram]], 
+                     columns = ["int_memory", "px_height", "px_width","bttery_power","ram"])
+    X = X.replace(["Brown", "Blue"], [1, 0])
+    
+    # Get prediction
+    prediction = svc.predict(X)[0]
+    
+    # Output prediction
+    st.text(f"This instance is a {prediction}")
