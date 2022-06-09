@@ -18,10 +18,11 @@ from sklearn.metrics import classification_report, confusion_matrix
 
 st.write("""
 # Machine Learning - Mobile Price Range
-This app shows the results of some methods to classify the mobile price ranges based on multiple predictors.
+This app shows lets user choose a few classification methods to predict mobile price ranges based on multiple predictors, as well as some informations such as the classification report of those methods.
 """)
 st.write("""
-Get this dataset [here](https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification?datasetId=11167&sortBy=voteCount)
+Get this mobile phone price range dataset [here](https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification?datasetId=11167&sortBy=voteCount)
+[My Github](https://github.com/nurulizzahzambri)
 """)
 
 url = "https://raw.githubusercontent.com/nurulizzahzambri/finalassignmentmaybeidk/main/train.csv"
@@ -29,18 +30,21 @@ phone_data = pd.read_csv(url)
 
 st.write("""
          ## These are the predictors for this dataset
+         we will only use int_memory, px_height, px_width, battery_power, ram for the machine learning as these predictors have te highest correlations with the price_range
          """)
-st.write(phone_data.columns)
+st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
 
 st.write("""
-         ## The summary of only numeric X variables
+         ## The summary of X variables
+         This table summarizes only Xs with numeric entries.
          """)
          
 st.write(phone_data[['battery_power','clock_speed','fc','int_memory','m_dep','mobile_wt','pc','px_height','px_width','ram','sc_h','sc_w','talk_time']].describe())
 
 
 st.write("""
-         ## Scatter plot of x vs y
+         ## Scatter plot of x vs y (user selection)
+         Choose an x and a y to be visualized in a scatter plot
          """)
 
 #fig = plt.figure(figsize=(10, 4))
@@ -52,7 +56,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     x = st.radio(
-     'Select an X',
+     'Select an X for the scatter plot and the histogram',
       ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
        'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
        'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
@@ -60,7 +64,7 @@ with col1:
 
 with col2:
     y = st.radio(
-     'Select a y',
+     'Select a y for the scatter plot',
       ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
        'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
        'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
@@ -77,6 +81,10 @@ st.vega_lite_chart(phone_data, {
      },
  })
 
+st.write("""
+         ## Histogram of x(user selection)
+         The x variable of this histogram can be changed in previous radio selector. 
+         """)
 
 arr = phone_data[x]
 fig, ax = plt.subplots()
