@@ -34,14 +34,12 @@ st.write("""
          We will only use int_memory, px_height, px_width, battery_power, ram for the machine learning as these predictors have the highest correlations with the price_range.
          """)
 
-col1, col2 = st.columns(2)
 
-with col1:
-    st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
+st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
 
-with col2:
-    fig = px.imshow(phone_data.corr())
-    fig.show()
+
+fig = px.imshow(phone_data.corr())
+st.plotly(fig)
 
          
 st.write("""
