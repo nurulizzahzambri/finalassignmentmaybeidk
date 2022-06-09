@@ -41,7 +41,9 @@ with col1:
     st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
 
 with col2:
-    st.write(pd.DataFrame(phone_data.corr()['price_range'].sort_values().T,columns = ['Predictors','Correlation Values']))
+    fig, ax = plt.subplots()
+    ax.plt.matshow(dataframe.corr())
+    st.pyplot(fig)
 
 
 st.write("""
