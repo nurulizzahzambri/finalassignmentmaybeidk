@@ -83,7 +83,21 @@ fig, ax = plt.subplots()
 ax.scatter(arr,arry)
 ax.set_xlabel("battery_power")
 ax.set_ylabel("ram")
+st.pyplot(fig)
 
+arr = phone_data['battery_power']
+fig, ax = plt.subplots()
+ax.scatter(arr,bin = 10)
+ax.set_xlabel("battery_power")
+ax.set_ylabel("count")
+st.pyplot(fig)
+
+arr = phone_data['battery_power']
+arry = phone_data['price_range']
+fig, ax = plt.subplots()
+ax.bar(arr,bin = 10)
+ax.set_xlabel("battery_power")
+ax.set_ylabel("price_range")
 st.pyplot(fig)
 
 X = phone_data[['int_memory', 'px_height', 'px_width', 'battery_power', 'ram']]
