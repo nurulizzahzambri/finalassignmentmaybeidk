@@ -3,6 +3,9 @@ import pandas as pd
 import seaborn as sns
 import joblib
 
+import matplotlib.pyplot as plt
+import numpy as np
+
 # import matplotlib.pyplot as plt
 
 from sklearn.model_selection import train_test_split
@@ -74,7 +77,11 @@ st.vega_lite_chart(phone_data, {
      },
  })
 
+arr = np.random.normal(1, 1, size=100)
+fig, ax = plt.subplots()
+ax.hist(arr, bins=20)
 
+st.pyplot(fig)
 
 X = phone_data[['int_memory', 'px_height', 'px_width', 'battery_power', 'ram']]
 y = phone_data['price_range']
