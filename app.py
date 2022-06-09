@@ -31,7 +31,7 @@ url = "https://raw.githubusercontent.com/nurulizzahzambri/finalassignmentmaybeid
 phone_data = pd.read_csv(url)
 
 st.write("""
-         ## These are the predictors for this dataset
+         ## Predictors for this dataset
          We will only use int_memory, px_height, px_width, battery_power, ram for the machine learning as these predictors have the highest correlations with the price_range.
          """)
 st.write(pd.DataFrame(phone_data.columns, columns = ['Predictors']))
@@ -154,17 +154,16 @@ st.write(cf)
 
 # Header
 st.write("### Price Range Predictor")
-# X = 'int_memory','px_height','px_width','battery_power','ram'
-# Input bar 1
+
+st.write('Predictors are sorted from the highest correlation to the lowest with the price_range')
+
+# Input bars
+ram =  st.slider("Ram",min_value=256,max_value=3998,value=400,step=1)
+battery_power = st.slider("Battery Power",min_value=501,max_value=1998,value=600,step=1)
+px_width = st.slider("Phone Width",min_value=500,max_value=1998,value=600,step=1)   
+px_height = st.slider("Phone Height",min_value=20,max_value=1960,value=100,step=1)
 int_memory = st.slider("Internal memory",min_value=2.0,max_value=64.0,value=32.0,step=0.1)
 
-# Input bar 2:5
-px_height = st.slider("Phone Height",min_value=20,max_value=1960,value=100,step=1)
-px_width = st.slider("Phone Width",min_value=500,max_value=1998,value=600,step=1)
-battery_power = st.slider("Battery Power",min_value=501,max_value=1998,value=600,step=1)
-ram =  st.slider("Ram",min_value=256,max_value=3998,value=400,step=1)
-
-         
 # If button is pressed
 if st.button("Confirm"):
   # Store inputs into dataframe
