@@ -53,6 +53,9 @@ with col2:
 with col3:
     st.empty()
 
+st.write("""
+         ### Correlation heatmap
+         """)
 # show correlation heatmap
 fig = px.imshow(phone_data.corr(),color_continuous_scale='RdBu',zmin=-1,zmax=1)
 st.plotly_chart(fig)
