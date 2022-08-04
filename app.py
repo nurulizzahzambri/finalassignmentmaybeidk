@@ -230,14 +230,14 @@ if st.button("Confirm"):
     st.write('#### predicted price_range')
 
     # Get prediction
-    prediction = nb.predict(Xnew)[0]
+    prediction = nb.predict(X)[0]
   
   
   elif option == 'Random Forest':
     st.write('#### predicted price_range')
 
     # Get prediction
-    prediction = rf.predict(Xnew)[0]
+    prediction = rf.predict(X)[0]
     
 
   # Output prediction and price range description table
