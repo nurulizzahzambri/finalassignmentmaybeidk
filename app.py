@@ -223,21 +223,21 @@ if st.button("Confirm"):
     st.write('#### predicted price_range')
    
     # Get prediction
-    prediction = logreg.predict(Xenw)[0]
+    prediction = logreg.predict(Xnew)[0]
   
 
   elif option == 'Gaussian Naive Bayes':
     st.write('#### predicted price_range')
 
     # Get prediction
-    prediction = nb.predict(X)[0]
+    prediction = nb.predict(Xnew)[0]
   
   
   elif option == 'Random Forest':
     st.write('#### predicted price_range')
 
     # Get prediction
-    prediction = rf.predict(X)[0]
+    prediction = rf.predict(Xnew)[0]
     
 
   # Output prediction and price range description table
